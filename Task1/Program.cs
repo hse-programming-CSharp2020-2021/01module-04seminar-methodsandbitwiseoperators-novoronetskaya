@@ -27,7 +27,7 @@ namespace Task1
         // TODO: использовать передачу параметров по ссылке
         static void ReadBoundaries(ref uint q, ref uint p, ref bool error)
         {
-            error = !uint.TryParse(Console.ReadLine(), out q) || !uint.TryParse(Console.ReadLine(), out p) || p < q;
+            error = !uint.TryParse(Console.ReadLine(), out q) || !uint.TryParse(Console.ReadLine(), out p) || p <= q;
         }
 
         static void PrintPythagorasNumbers(uint q, uint p)
@@ -47,7 +47,7 @@ namespace Task1
             }
         }
 
-        static void Main(string[] args)
+        static void Main()
         {
             uint q = 0;
             uint p = 0;
@@ -55,8 +55,6 @@ namespace Task1
             ReadBoundaries(ref q, ref p, ref error);
             if (error)
             {
-                Console.WriteLine(p);
-                Console.WriteLine(q);
                 Console.WriteLine("Ошибка");
                 return;
             }

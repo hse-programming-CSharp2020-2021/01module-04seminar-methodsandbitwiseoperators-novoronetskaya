@@ -51,10 +51,22 @@ namespace Task2
                 input = Console.ReadLine();
             }
             double average = (double)sum / num;
-            Console.WriteLine($"{average:f2}");
+            Console.WriteLine(GetOutputFormat($"{average:f2}"));
         }
-
-
+        static string GetOutputFormat(string answer)
+        {
+            int index = answer.Length - 1;
+            while (answer[index] == '0')
+            {
+                answer = answer.Substring(0, index);
+                index = answer.Length - 1;
+            }
+            if (answer[index] == '.')
+            {
+                answer = answer.Substring(0, index);
+            }
+            return answer;
+        }
         static void Main()
         {
             ReadData();

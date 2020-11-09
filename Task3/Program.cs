@@ -45,7 +45,7 @@ namespace Task3
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             double x = 1;
             double a = GetValidData();
@@ -63,18 +63,32 @@ namespace Task3
             while (x < 1.2)
             {
                 result = a * x * x + b * x + c;
-                Console.WriteLine($"{result:f3}");
+                Console.WriteLine(GetOutputFormat($"{result:f3}"));
                 x += 0.05;
             }
             result = a / x + Math.Sqrt(x * x + 1);
-            Console.WriteLine($"{result:f3}");
+            Console.WriteLine(GetOutputFormat($"{result:f3}"));
             x += 0.05;
             while (x < 2.05)
             {
                 result = (a + b * x) / Math.Sqrt(x * x + 1);
-                Console.WriteLine($"{result:f3}");
+                Console.WriteLine(GetOutputFormat($"{result:f3}"));
                 x += 0.05;
             }
+        }
+        static string GetOutputFormat(string answer)
+        {
+            int index = answer.Length - 1;
+            while (answer[index] == '0')
+            {
+                answer = answer.Substring(0, index);
+                index = answer.Length - 1;
+            }
+            if (answer[index] == '.')
+            {
+                answer = answer.Substring(0, index);
+            }
+            return answer;
         }
     }
 }
