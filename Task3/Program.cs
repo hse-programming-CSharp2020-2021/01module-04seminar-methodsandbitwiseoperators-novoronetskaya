@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 
 /*
  * На вход подаются три числа: параметры функции a, b, c
@@ -48,7 +47,6 @@ namespace Task3
     {
         static void Main(string[] args)
         {
-            CultureInfo.CurrentCulture = new CultureInfo("ru-RU");
             double x = 1;
             double a = GetValidData();
             double b = GetValidData();

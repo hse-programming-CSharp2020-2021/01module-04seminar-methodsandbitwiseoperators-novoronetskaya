@@ -39,6 +39,7 @@ namespace Task2
             {
                 if (!int.TryParse(input, out x) && input != "q")
                 {
+                    Console.WriteLine(input);
                     Console.WriteLine("Ошибка");
                     return;
                 }
@@ -54,7 +55,7 @@ namespace Task2
         }
 
 
-        static void Main(string[] args)
+        static void Main()
         {
             ReadData();
         }

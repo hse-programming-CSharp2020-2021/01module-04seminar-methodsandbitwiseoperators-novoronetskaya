@@ -55,6 +55,8 @@ namespace Task1
             ReadBoundaries(ref q, ref p, ref error);
             if (error)
             {
+                Console.WriteLine(p);
+                Console.WriteLine(q);
                 Console.WriteLine("Ошибка");
                 return;
             }
