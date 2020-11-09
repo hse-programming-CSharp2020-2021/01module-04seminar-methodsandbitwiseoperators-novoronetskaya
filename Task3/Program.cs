@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 /*
  * На вход подаются три числа: параметры функции a, b, c
@@ -45,10 +46,37 @@ namespace Task3
 {
     class Program
     {
-        // TODO: самостоятельно выделите и напишите методы, использующиеся для решения задачи
-
         static void Main(string[] args)
         {
+            CultureInfo.CurrentCulture = new CultureInfo("ru-RU");
+            double x = 1;
+            double a = GetValidData();
+            double b = GetValidData();
+            double c = GetValidData();
+            GetEquations(a, b, c, ref x);
+        }
+        static double GetValidData()
+        {
+            return double.Parse(Console.ReadLine());
+        }
+        static void GetEquations(double a, double b, double c, ref double x)
+        {
+            double result;
+            while (x < 1.2)
+            {
+                result = a * x * x + b * x + c;
+                Console.WriteLine($"{result:f3}");
+                x += 0.05;
+            }
+            result = a / x + Math.Sqrt(x * x + 1);
+            Console.WriteLine($"{result:f3}");
+            x += 0.05;
+            while (x < 2.05)
+            {
+                result = (a + b * x) / Math.Sqrt(x * x + 1);
+                Console.WriteLine($"{result:f3}");
+                x += 0.05;
+            }
         }
     }
 }
