@@ -79,12 +79,11 @@ namespace Task3
         static string GetOutputFormat(string answer)
         {
             int index = answer.Length - 1;
-            while (answer[index] == '0')
+            while (answer[index] == '0' && index > 0)
             {
-                answer = answer.Substring(0, index);
-                index = answer.Length - 1;
+                answer = answer.Substring(0, index--);
             }
-            if (answer[index] == '.')
+            if (answer[index] == '.' && index > 0)
             {
                 answer = answer.Substring(0, index);
             }
