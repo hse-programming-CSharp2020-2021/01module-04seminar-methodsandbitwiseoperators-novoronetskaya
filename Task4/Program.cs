@@ -20,20 +20,20 @@ namespace Task4
 {
     class Program
     {
-        static uint GetPower(uint n)
+        static int GetPower(uint n)
         {
             ulong result = 1;
             for(int i = 0; i < n; i++)
             {
                 result << 1;
-                if (result > Int32.MaxValue)
+                if (Math.Abs(result) > Int32.MaxValue)
                 {
                     return -1;
                 }
             }
             return result;
         }
-        static void Main(string[] args)
+        static void Main()
         {
             uint n, m;
             if (!uint.TryParse(Console.ReadLine(), out n) || !uint.TryParse(Console.ReadLine(), out m))
@@ -44,7 +44,7 @@ namespace Task4
             int powN = GetPower(n);
             int powM = GetPower(m);
             long sum = powN + powM;
-            if (powN < 0 || powM < 0 || sum > Int32.MaxValue)
+            if (powN < 0 || powM < 0 || Math.Abs(sum) > Int32.MaxValue)
             {
                 Console.WriteLine("Переполнение");
             }
