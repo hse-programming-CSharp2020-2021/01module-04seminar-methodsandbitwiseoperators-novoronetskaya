@@ -20,12 +20,12 @@ namespace Task4
 {
     class Program
     {
-        static uint GetPower(n)
+        static uint GetPower(uint n)
         {
             ulong result = 1;
             for(int i = 0; i < n; i++)
             {
-                result<<;
+                result << 1;
                 if (result > Int32.MaxValue)
                 {
                     return -1;
@@ -35,8 +35,12 @@ namespace Task4
         }
         static void Main(string[] args)
         {
-            int n = int.Parse(Console.ReadLine());
-            int m = int.ParseA(Console.ReadLine());
+            uint n, m;
+            if (!uint.TryParse(Console.ReadLine(), out n) || !uint.TryParse(Console.ReadLine(), out m))
+            {
+                Console.WriteLine("Ошибка");
+                return;
+            }
             int powN = GetPower(n);
             int powM = GetPower(m);
             long sum = powN + powM;
