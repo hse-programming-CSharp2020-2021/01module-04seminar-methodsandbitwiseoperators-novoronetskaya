@@ -32,7 +32,7 @@ namespace Task2
         // TODO: используйте передачу параметров по ссылке
         static void ReadData()
         {
-            lint sum = 0;
+            int sum = 0;
             string input = Console.ReadLine();
             int x = 0;
             int num = 0;
