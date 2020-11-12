@@ -31,7 +31,7 @@ namespace Task4
                     return -1;
                 }
             }
-            return result;
+            return (int)result;
         }
         static void Main()
         {
