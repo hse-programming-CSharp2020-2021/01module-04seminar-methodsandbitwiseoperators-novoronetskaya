@@ -49,6 +49,7 @@ namespace Task1
 
         static void Main()
         {
+            Console.OutputEncoding = Encoding.UTF8;
             uint q = 0;
             uint p = 0;
             bool error = false;
