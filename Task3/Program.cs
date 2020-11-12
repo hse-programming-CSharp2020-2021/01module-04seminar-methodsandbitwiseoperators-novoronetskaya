@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 /*
  * На вход подаются три числа: параметры функции a, b, c
@@ -47,17 +48,21 @@ namespace Task3
     {
         static void Main()
         {
+            Console.OutputEncoding = Encoding.UTF8;
             double x = 1;
-            double a = GetValidData();
-            double b = GetValidData();
-            double c = GetValidData();
-            GetEquations(a, b, c, ref x);
+            double a, b, c;
+            if(!double.TryParse(Console.ReadLine(), out a) || !double.TryParse(Console.ReadLine(), out b) || !double.TryParse(Console.ReadLine(), out c))
+            {
+                Console.WriteLine("Ошибка");
+                return;
+            }
+            GetEquations(a, b, c, x);
         }
         static double GetValidData()
         {
             return double.Parse(Console.ReadLine());
         }
-        static void GetEquations(double a, double b, double c, ref double x)
+        static void GetEquations(double a, double b, double c, double x)
         {
             double result;
             while (x < 1.2)
