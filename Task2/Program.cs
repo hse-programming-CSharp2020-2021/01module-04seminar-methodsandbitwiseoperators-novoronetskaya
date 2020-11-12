@@ -40,7 +40,6 @@ namespace Task2
             {
                 if (!int.TryParse(input, out x) && input != "q")
                 {
-                    Console.WriteLine(input);
                     Console.WriteLine("Ошибка");
                     return;
                 }
