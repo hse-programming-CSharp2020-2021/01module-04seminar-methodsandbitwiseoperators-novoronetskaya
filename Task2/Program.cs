@@ -37,7 +37,7 @@ namespace Task2
             int num = 0;
             while (sum >= -1000 && input != "q")
             {
-                if (!long.TryParse(input, out x) && input != "q" || x > Int32.MaxValue)
+                if (!long.TryParse(input, out x) && input != "q" || Math.Abs(x) > Int32.MaxValue)
                 {
                     Console.WriteLine(input);
                     Console.WriteLine("Ошибка");
@@ -52,6 +52,7 @@ namespace Task2
             }
             if (num == 0) 
             {
+                Console.WriteLine(0);
                 return;
             }
             double average = (double)sum / num;
