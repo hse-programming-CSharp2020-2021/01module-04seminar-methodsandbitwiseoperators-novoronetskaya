@@ -37,6 +37,7 @@ namespace Task2
             int num = 0;
             while (sum >= -1000 && input != "q")
             {
+                Console.WriteLine(input);
                 if (!int.TryParse(input, out x) && input != "q")
                 {
                     Console.WriteLine(input);
