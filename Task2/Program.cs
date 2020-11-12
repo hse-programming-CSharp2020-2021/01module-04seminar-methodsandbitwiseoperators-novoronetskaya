@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 /*
  * Пользователь последовательно вводит целые числа.
@@ -31,13 +32,13 @@ namespace Task2
         // TODO: используйте передачу параметров по ссылке
         static void ReadData()
         {
-            long sum = 0;
+            lint sum = 0;
             string input = Console.ReadLine();
-            long x = 0;
+            int x = 0;
             int num = 0;
             while (sum >= -1000 && input != "q")
             {
-                if (!long.TryParse(input, out x) && input != "q" || Math.Abs(x) > Int32.MaxValue)
+                if (!int.TryParse(input, out x) && input != "q")
                 {
                     Console.WriteLine(input);
                     Console.WriteLine("Ошибка");
@@ -74,6 +75,7 @@ namespace Task2
         }
         static void Main()
         {
+            Console.OutputEncoding = Encoding.UTF8;
             ReadData();
         }
     }
