@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 /*
  * На вход подаются три числа: параметры функции a, b, c
@@ -45,10 +46,53 @@ namespace Task3
 {
     class Program
     {
-        // TODO: самостоятельно выделите и напишите методы, использующиеся для решения задачи
-
-        static void Main(string[] args)
+        static void Main()
         {
+            Console.OutputEncoding = Encoding.UTF8;
+            double x = 1;
+            double a, b, c;
+            if(!double.TryParse(Console.ReadLine(), out a) || !double.TryParse(Console.ReadLine(), out b) || !double.TryParse(Console.ReadLine(), out c))
+            {
+                Console.WriteLine("Ошибка");
+                return;
+            }
+            GetEquations(a, b, c, x);
+        }
+        static double GetValidData()
+        {
+            return double.Parse(Console.ReadLine());
+        }
+        static void GetEquations(double a, double b, double c, double x)
+        {
+            double result;
+            while (x < 1.2)
+            {
+                result = a * x * x + b * x + c;
+                Console.WriteLine(GetOutputFormat($"{result:f3}"));
+                x += 0.05;
+            }
+            result = a / x + Math.Sqrt(x * x + 1);
+            Console.WriteLine(GetOutputFormat($"{result:f3}"));
+            x += 0.05;
+            while (x < 2.05)
+            {
+                result = (a + b * x) / Math.Sqrt(x * x + 1);
+                Console.WriteLine(GetOutputFormat($"{result:f3}"));
+                x += 0.05;
+            }
+        }
+        static string GetOutputFormat(string answer)
+        {
+            int index = answer.Length - 1;
+            while (answer[index] == '0' && index > 0)
+            {
+                answer = answer.Substring(0, index--);
+            }
+            if (answer[index] == '.' && index > 0)
+            {
+                answer = answer.Substring(0, index);
+            }
+            return answer;
         }
     }
 }

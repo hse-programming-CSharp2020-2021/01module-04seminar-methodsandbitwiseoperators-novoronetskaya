@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 /*
  * Вычислить значение выражения 2^𝑁+2^𝑀, 𝑁, 𝑀 – целые неотрицательные числа вводятся пользователем с клавиатуры.
@@ -20,10 +21,39 @@ namespace Task4
 {
     class Program
     {
-        // TODO: самостоятельно выделите и напишите методы, использующиеся для решения задачи
-
-        static void Main(string[] args)
+        static int GetPower(uint n)
         {
+            long result = 1;
+            for(int i = 0; i < n; i++)
+            {
+                result = result << 1;
+                if (result > Int32.MaxValue)
+                {
+                    return -1;
+                }
+            }
+            return (int)result;
+        }
+        static void Main()
+        {
+            Console.OutputEncoding = Encoding.UTF8;
+            uint n, m;
+            if (!uint.TryParse(Console.ReadLine(), out n) || !uint.TryParse(Console.ReadLine(), out m))
+            {
+                Console.WriteLine("Ошибка");
+                return;
+            }
+            long powN = GetPower(n);
+            long powM = GetPower(m);
+            long sum = powN + powM;
+            if (powN < 0 || powM < 0 || sum > Int32.MaxValue)
+            {
+                Console.WriteLine("Переполнение");
+            }
+            else
+            {
+                Console.WriteLine(sum);
+            }
         }
     }
 }
