@@ -78,7 +78,6 @@ namespace Task3
         }
         static string GetOutputFormat(string answer)
         {
-            Console.WriteLine(answer);
             int index = answer.Length - 1;
             while (answer[index] == '0' && index > 0)
             {
