@@ -20,10 +20,34 @@ namespace Task4
 {
     class Program
     {
-        // TODO: самостоятельно выделите и напишите методы, использующиеся для решения задачи
-
+        static uint GetPower(n)
+        {
+            ulong result = 1;
+            for(int i = 0; i < n; i++)
+            {
+                result<<;
+                if (result > Int32.MaxValue)
+                {
+                    return -1;
+                }
+            }
+            return result;
+        }
         static void Main(string[] args)
         {
+            int n = int.Parse(Console.ReadLine());
+            int m = int.ParseA(Console.ReadLine());
+            int powN = GetPower(n);
+            int powM = GetPower(m);
+            long sum = powN + powM;
+            if (powN < 0 || powM < 0 || sum > Int32.MaxValue)
+            {
+                Console.WriteLine("Переполнение");
+            }
+            else
+            {
+                Console.WriteLine(sum);
+            }
         }
     }
 }
