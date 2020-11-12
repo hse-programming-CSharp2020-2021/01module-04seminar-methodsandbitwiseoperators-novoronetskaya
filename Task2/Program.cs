@@ -31,14 +31,13 @@ namespace Task2
         // TODO: используйте передачу параметров по ссылке
         static void ReadData()
         {
-            int sum = 0;
+            long sum = 0;
             string input = Console.ReadLine();
-            int x = 0;
+            long x = 0;
             int num = 0;
             while (sum >= -1000 && input != "q")
             {
-                Console.WriteLine(input);
-                if (!int.TryParse(input, out x) && input != "q")
+                if (!long.TryParse(input, out x) && input != "q" || x > Int32.MaxValue)
                 {
                     Console.WriteLine(input);
                     Console.WriteLine("Ошибка");
@@ -50,6 +49,10 @@ namespace Task2
                     num++;
                 }
                 input = Console.ReadLine();
+            }
+            if (num == 0) 
+            {
+                return;
             }
             double average = (double)sum / num;
             Console.WriteLine(GetOutputFormat($"{average:f2}"));
