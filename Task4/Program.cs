@@ -22,11 +22,11 @@ namespace Task4
     {
         static int GetPower(uint n)
         {
-            ulong result = 1;
+            long result = 1;
             for(int i = 0; i < n; i++)
             {
-                result << 1;
-                if (Math.Abs(result) > Int32.MaxValue)
+                result = result << 1;
+                if (result > Int32.MaxValue)
                 {
                     return -1;
                 }
@@ -41,10 +41,10 @@ namespace Task4
                 Console.WriteLine("Ошибка");
                 return;
             }
-            int powN = GetPower(n);
-            int powM = GetPower(m);
+            long powN = GetPower(n);
+            long powM = GetPower(m);
             long sum = powN + powM;
-            if (powN < 0 || powM < 0 || Math.Abs(sum) > Int32.MaxValue)
+            if (powN < 0 || powM < 0 || sum > Int32.MaxValue)
             {
                 Console.WriteLine("Переполнение");
             }
